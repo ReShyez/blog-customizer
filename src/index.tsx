@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { createRoot } from 'react-dom/client';
 import { StrictMode, CSSProperties } from 'react';
 import clsx from 'clsx';
