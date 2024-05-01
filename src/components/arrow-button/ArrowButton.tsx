@@ -1,17 +1,21 @@
-/* eslint-disable prettier/prettier */
 import arrow from 'src/images/arrow.svg';
 
 import styles from './ArrowButton.module.scss';
+import clsx from 'clsx';
 
 /** Функция для обработки открытия/закрытия формы */
 export type OnClick = () => void;
 type TAppowProps = {
-	isOpen: boolean;
+	isFormOpen: boolean;
 	toggleClick: OnClick;
-}
-export const ArrowButton = ({toggleClick, isOpen,}: TAppowProps) => {
-	const mainClass = isOpen ? `${styles.container} ${styles.container_open}` : styles.container;
-	const arrowClass = isOpen ? `${styles.arrow} ${styles.arrow_open}` : styles.arrow;
+};
+export const ArrowButton = ({ toggleClick, isFormOpen }: TAppowProps) => {
+	const mainClass = !isFormOpen
+		? styles.container
+		: clsx(styles.container, styles.container_open);
+	const arrowClass = !isFormOpen
+		? styles.arrow
+		: clsx(styles.arrow, styles.arrow_open);
 	return (
 		/* Не забываем указаывать role и aria-label атрибуты для интерактивных элементов */
 		<div
